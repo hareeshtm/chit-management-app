@@ -1,5 +1,7 @@
 package com.finance.chitmanagement.module.auth.service.impl;
 
+import com.finance.chitmanagement.module.auth.dto.LoginRequest;
+import com.finance.chitmanagement.module.auth.dto.LoginResponse;
 import com.finance.chitmanagement.module.auth.dto.SignupRequest;
 import com.finance.chitmanagement.module.auth.entity.Role;
 import com.finance.chitmanagement.module.auth.entity.User;
@@ -35,5 +37,10 @@ public class AuthServiceImpl implements AuthService {
                 .orElseThrow(() -> new RuntimeException("Role not found: ROLE_CUSTOMER"));
         customer.setRoles(Set.of(customerRole));
         userRepository.save(customer);
+    }
+
+    @Override
+    public LoginResponse login(LoginRequest request) {
+        return null;
     }
 }
