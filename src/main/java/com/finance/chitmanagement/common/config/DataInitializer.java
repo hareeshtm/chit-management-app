@@ -1,4 +1,4 @@
-package com.finance.chitmanagement.config;
+package com.finance.chitmanagement.common.config;
 
 import com.finance.chitmanagement.module.auth.entity.Role;
 import com.finance.chitmanagement.module.auth.repository.RoleRepository;

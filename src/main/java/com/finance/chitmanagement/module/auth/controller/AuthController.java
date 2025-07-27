@@ -1,5 +1,7 @@
 package com.finance.chitmanagement.module.auth.controller;
 
+import com.finance.chitmanagement.module.auth.dto.LoginRequest;
+import com.finance.chitmanagement.module.auth.dto.LoginResponse;
 import com.finance.chitmanagement.module.auth.dto.SignupRequest;
 import com.finance.chitmanagement.module.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +22,10 @@ public class AuthController {
     public ResponseEntity<String> signup(@RequestBody SignupRequest request) {
         authService.registerCustomer(request);
         return ResponseEntity.ok("User registered successfully");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
+        return ResponseEntity.ok(authService.login(loginRequest));
     }
 }
