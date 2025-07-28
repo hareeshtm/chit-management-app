@@ -1,5 +1,6 @@
 package com.finance.chitmanagement.common.exception;
 
+import com.finance.chitmanagement.common.dto.ChitErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

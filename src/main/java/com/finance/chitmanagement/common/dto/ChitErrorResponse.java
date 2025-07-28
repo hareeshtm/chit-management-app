@@ -1,4 +1,4 @@
-package com.finance.chitmanagement.common.exception;
+package com.finance.chitmanagement.common.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
