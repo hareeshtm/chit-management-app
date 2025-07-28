@@ -32,6 +32,7 @@ public class SecurityConfig
                 .csrf(csrf -> csrf.disable()) // For REST APIs
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/users/all").hasRole("ADMIN")
                         .requestMatchers("/api/users/me").authenticated()
                         .anyRequest().authenticated()
                 )
