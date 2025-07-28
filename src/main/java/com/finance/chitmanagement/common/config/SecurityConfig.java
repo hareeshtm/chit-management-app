@@ -1,5 +1,6 @@
 package com.finance.chitmanagement.common.config;
 
+import com.finance.chitmanagement.common.security.JwtAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,10 +27,14 @@ public class SecurityConfig
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
+    @Autowired
+    private JwtAuthenticationEntryPoint jwtEntryPoint;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable()) // For REST APIs
+                .exceptionHandling(ex -> ex.authenticationEntryPoint(jwtEntryPoint)) // Handle unauthorized access. Updated SecurityConfig to use the EntryPoint
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/users/all").hasRole("ADMIN")
