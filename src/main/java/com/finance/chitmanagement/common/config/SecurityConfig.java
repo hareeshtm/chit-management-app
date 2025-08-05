@@ -14,11 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- *
- * all requests (except /api/auth/signup and /api/auth/login) require a valid JWT token.
- */
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig
@@ -29,6 +24,10 @@ public class SecurityConfig
 
     @Autowired
     private JwtAuthenticationEntryPoint jwtEntryPoint;
+
+    /**
+     *all requests (except /api/auth/signup and /api/auth/login) require a valid JWT token.
+     */
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
